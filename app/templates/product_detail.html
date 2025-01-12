@@ -1,0 +1,34 @@
+{% extends "app1/menu.html" %} {% load static %} {% block main_content%} welcome
+trang detail
+
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi Tiết Sản Phẩm</title>
+    <link rel="stylesheet" href="detail_p.css" />
+  </head>
+
+  <body>
+    <div class="product-detail">
+      <h1>Đồng Hồ Thông Minh XYZ</h1>
+      <div class="product-info">
+        <img
+          src="smartwatch.jpg"
+          alt="Đồng Hồ Thông Minh XYZ"
+          class="product-image"
+        />
+        <div class="details">
+          <p class="price">Giá: 1.500.000 VNĐ</p>
+          <p class="description">
+            Đồng hồ thông minh XYZ với thiết kế hiện đại, nhiều tính năng vượt
+            trội như theo dõi sức khỏe, thông báo cuộc gọi, và nhiều hơn nữa.
+          </p>
+          <button class="add-to-cart">Thêm vào giỏ hàng</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+{% endblock main_content %}
