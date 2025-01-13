@@ -12,9 +12,49 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="" />
+
+    <link href="{%static 'app\css\style.css' %}" rel="stylesheet" />
+    <link href="{%static 'app\css\app.css' %}" rel="stylesheet" />
+    <link href="{%static 'app\css\detail_p.css' %}" rel="stylesheet" />
   </head>
   {% include 'app1/slider.html' %}
   <body>
+    <form method="GET" action="{% url 'home' %}">
+      <input
+        type="text"
+        name="query"
+        placeholder="Tìm kiếm nhân viên..."
+        value="{{ query }}"
+      />
+      <button type="submit">Tìm kiếm</button>
+    </form>
+
+    <h2>Kết Quả Tìm Kiếm</h2>
+    <ul>
+      {% if results %} {% for employee in results %}
+      <li>{{ employee.first_name }} {{ employee.last_name }}</li>
+      {% empty %}
+      <li>Không tìm thấy nhân viên nào.</li>
+      {% endfor %} {% else %}
+      <li>Chưa có kết quả nào.</li>
+      {% endif %}
+    </ul>
+    <!-- test tim kiem nhan vien  -->
+
+    <h2 class="mt-4">Kết Quả Tìm Kiếm</h2>
+    <ul class="list-group">
+      {% if results %} {% for employee in results %}
+      <li class="list-group-item">
+        {{ employee.first_name }} {{ employee.last_name }}
+        <!-- Nếu bạn đang sử dụng chỉ số -->
+        <!-- Hoặc nếu bạn có mô hình, dùng như sau: -->
+        <!-- {{ employee.first_name }} {{ employee.last_name }} -->
+      </li>
+      {% endfor %} {% else %}
+      <li class="list-group-item">Không tìm thấy nhân viên nào.</li>
+      {% endif %}
+    </ul>
+
     <!-- Thanh công cụ lọc sản phẩm -->
     <div class="filter-toolbar">
       <label for="category">Loại Hàng:</label>

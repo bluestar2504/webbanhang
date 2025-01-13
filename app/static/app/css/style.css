@@ -169,3 +169,6 @@ footer a {
 .bd-mode-toggle .dropdown-menu .active .bi {
   display: block !important;
 }
+input[type="text"] {
+  display: initial !important; /* Điều này sẽ ẩn tất cả các ô nhập liệu kiểu text */
+}

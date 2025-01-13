@@ -1,0 +1,109 @@
+{% extends "app1/menu.html" %} {% load static %} {% block main_content%} welcome
+trang cart
+
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giỏ Hàng</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      .cart-item {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        border-bottom: 1px solid #eaeaea;
+      }
+      .cart-item img {
+        width: 100px;
+        height: 100px;
+        margin-right: 15px;
+      }
+      .item-details {
+        flex: 1;
+      }
+      .item-name {
+        font-size: 18px;
+        color: #333;
+      }
+      .item-price {
+        font-size: 16px;
+        color: #ff5722;
+      }
+      .item-quantity {
+        display: flex;
+        align-items: center;
+      }
+      .quantity-input {
+        width: 50px;
+        margin: 0 10px;
+        text-align: center;
+      }
+      .remove-button {
+        color: #ff5722;
+        cursor: pointer;
+      }
+      .total {
+        text-align: right;
+        font-size: 20px;
+        margin-top: 20px;
+      }
+      .checkout-button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #ff5722;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Giỏ Hàng</h1>
+
+      <div class="cart-item">
+        <img src="https://via.placeholder.com/100" alt="Sản phẩm 1" />
+        <div class="item-details">
+          <div class="item-name">Sản phẩm 1</div>
+          <div class="item-price">100.000 VNĐ</div>
+          <div class="item-quantity">
+            <button>-</button>
+            <input type="number" value="1" class="quantity-input" />
+            <button>+</button>
+          </div>
+        </div>
+        <div class="remove-button">Xóa</div>
+      </div>
+
+      <!-- More cart items can be added here -->
+
+      <div class="total">Tổng cộng: 100.000 VNĐ</div>
+      <button class="checkout-button">Thanh Toán</button>
+    </div>
+  </body>
+</html>
+
+{% endblock main_content %}
