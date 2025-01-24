@@ -37,8 +37,14 @@
       integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
       crossorigin="anonymous"
     ></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="{%static 'app/js/app.js' %}"></script>
 
+    <style>
+      #dropdown-menu-near-border {
+        transform: translateX(-100px); /* Adjust this value as needed */
+      }
+    </style>
     <title>menubar</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -103,21 +109,18 @@
             </li>
           </ul>
 
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <form class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+          <ul id="right_display" class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item-right">
-              <a class="nav-link" href="#">Giỏ hàng</a>
+              <a class="nav-link" id="cart_btn" href="#">Giỏ hàng</a>
             </li>
+            <!-- Script Link den cart.html -->
+            <script>
+              document.getElementById("cart_btn").onclick = function () {
+                window.location.href = "/cart/";
+              };
+            </script>
+            <!-- Ket thuc script -->
+
             <li class="nav-item-right">
               <a class="nav-link" href="#">Đăng nhập</a>
             </li>
@@ -135,7 +138,7 @@
               >
                 User
               </a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu" id="dropdown-menu-near-border">
                 <li><a class="dropdown-item" href="#">User profile</a></li>
                 <li><a class="dropdown-item" href="#">Logout</a></li>
               </ul>

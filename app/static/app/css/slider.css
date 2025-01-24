@@ -80,12 +80,11 @@ body {
 .banner-label {
   color: black;
   font-weight: bold;
-  font-size: 3.5em !important;
 }
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
-  width: 20rem;
-  height: 20rem;
+  width: 5rem;
+  height: 5rem;
   color: gray;
 }
 .text-overlay {

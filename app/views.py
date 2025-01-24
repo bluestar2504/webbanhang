@@ -1,6 +1,6 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse
-from .models import Employee
+from .models import Employee,Product
 import mysql.connector
 
 
@@ -10,10 +10,12 @@ def gethome(request):
     query = request.GET.get('query', '')  # Lấy từ khóa tìm kiếm từ query string
     if query:
         results = perform_search(query)  # Thực hiện tìm kiếm nếu có từ khóa
-    return render(request, 'index.html', {'results': results, 'query': query})  # Trả về kết quả tìm kiếm
+    products = Product.objects.all()  # Fetch all products from the database
+    return render(request, 'index.html', {'results': results, 'query': query, 'products': products}) #tra ve index 
 
-def getdetail(request):
-    return render(request,'product_detail.html')
+def getdetail(request,product_id):
+    product = get_object_or_404(Product, product_id=product_id)
+    return render(request, 'product_detail.html', {'product': product})
 def gettest(request):
     return render(request,'app1/test.html')
 def getcart(request):

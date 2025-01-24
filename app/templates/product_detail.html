@@ -1,5 +1,4 @@
-{% extends "app1/menu.html" %} {% load static %} {% block main_content%} welcome
-trang detail
+{% extends "app1/menu.html" %} {% load static %} {% block main_content%}
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -9,23 +8,59 @@ trang detail
     <title>Chi Tiết Sản Phẩm</title>
     <link rel="stylesheet" href="detail_p.css" />
   </head>
+  <style>
+    .card {
+      height: 500px; /* Set the same height as the product-detail-img */
+    }
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+    .card-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .card-text {
+      margin-bottom: 0.5rem;
+    }
+  </style>
 
   <body>
-    <div class="product-detail">
-      <h1>Đồng Hồ Thông Minh XYZ</h1>
-      <div class="product-info">
-        <img
-          src="smartwatch.jpg"
-          alt="Đồng Hồ Thông Minh XYZ"
-          class="product-image"
-        />
-        <div class="details">
-          <p class="price">Giá: 1.500.000 VNĐ</p>
-          <p class="description">
-            Đồng hồ thông minh XYZ với thiết kế hiện đại, nhiều tính năng vượt
-            trội như theo dõi sức khỏe, thông báo cuộc gọi, và nhiều hơn nữa.
-          </p>
-          <button class="add-to-cart">Thêm vào giỏ hàng</button>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <img
+              src="{{ product.image_url }}"
+              class="product-detail-img"
+              alt="{{ product.name }}"
+            />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h1 class="card-title">{{ product.name }}</h1>
+              <p class="card-text">{{ product.description }}</p>
+              <p class="card-text">
+                <strong>Price:</strong> {{ product.price }}₫
+              </p>
+              <p class="card-text">
+                <strong>Quantity:</strong> {{ product.quantity }}
+              </p>
+              <p class="card-text">
+                <strong>Category:</strong> {{ product.category }}
+              </p>
+              <p class="card-text">
+                <strong>Origin:</strong> {{ product.origin }}
+              </p>
+              <a href="{% url 'home' %}" class="btn btn-primary"
+                >Back to Products</a
+              >
+            </div>
+          </div>
         </div>
       </div>
     </div>
